@@ -2,7 +2,6 @@ import subprocess
 import signal
 import psutil
 from config import config, logger
-import logging
 
 class OllamaManager:
     def __init__(self, ollama_path):
