@@ -19,6 +19,7 @@ def load_config():
 config = load_config()
 
 # Setup logging
+import logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger()
 handler = RotatingFileHandler(config['log_file'], maxBytes=1000000, backupCount=5)
