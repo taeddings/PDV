@@ -1,1 +1,32 @@
-
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PDV Downloader</title>
+    <script src="//code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/4.1.2/socket.io.js"></script>
+    <script src="{{ url_for('static', filename='js/progress.js') }}"></script>
+</head>
+<body>
+    <div>
+        <h1>PDV Downloader</h1>
+        <form action="{{ url_for('download_youtube_video') }}" method="post">
+            <label for="youtube_url">YouTube Video URL:</label>
+            <input type="text" name="youtube_url" id="youtube_url" required>
+            <button type="submit">Download Video</button>
+        </form>
+        <form action="{{ url_for('download_youtube_audio') }}" method="post">
+            <label for="youtube_audio_url">YouTube Audio URL:</label>
+            <input type="text" name="youtube_audio_url" id="youtube_audio_url" required>
+            <button type="submit">Download Audio</button>
+        </form>
+        <form action="{{ url_for('download_archive') }}" method="post">
+            <label for="archive_url">Archive URL:</label>
+            <input type="text" name="archive_url" id="archive_url" required>
+            <button type="submit">Download Archive</button>
+        </form>
+        <hr>
+        <progress id="progress" max="100" value="{{ current_progress }}"></progress>
+        <p id="status">Status: {{ current_status }}</p>
+    </div>
+</body>
+</html>
