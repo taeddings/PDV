@@ -1,4 +1,0 @@
-download_dir: downloads
-log_file: logs/download_log.log
-max_download_size: 104857600
-ollama_path: ollama/ollama
