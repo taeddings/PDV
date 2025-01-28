@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chat with Assistant</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #121212; color: #FFFFFF; }
+        .container { margin: 40px auto; padding: 20px; max-width: 600px; background: #1E1E1E; border-radius: 8px; }
+        .chat-bubble { margin: 10px 0; padding: 10px; border-radius: 8px; }
+        .user { background: #3333AA; color: #FFFFFF; text-align: right; }
+        .assistant { background: #4444CC; color: #FFFFFF; text-align: left; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Chat with Assistant</h1>
+        {% for role, text in conversation %}
+        <div class="chat-bubble {{ 'user' if role == 'User' else 'assistant' }}">
+            <strong>{{ role }}:</strong> {{ text }}
+        </div>
+        {% endfor %}
+        <form action="{{ url_for('chat') }}" method="post">
+            <textarea name="user_input" rows="3" required></textarea>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+</body>
+</html>
